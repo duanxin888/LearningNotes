@@ -42,7 +42,7 @@ public class MergeSort {
         int[] tmp = new int[r - p + 1]; // 申请一个和 arr[p ... r]一样大小的数组
 
         while(i <= q && j <= r) {
-            if (arr[i] <= arr[j]) {
+            if (arr[i] <= arr[j]) { // 推算出该归并排序是稳定排序算法
                 tmp[k++] = arr[i++];
             } else {
                 tmp[k++] = arr[j++];
