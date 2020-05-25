@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 /**
  * 快速排序
- *
+ * 结果分析：快速排序不是稳定排序算法，是原地排序算法
+ * 时间复杂度：O(nlogn)   空间复杂度：O(1)
  * @author duanxin
  * @version 1.0
  * @className QuickSort
