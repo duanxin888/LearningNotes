@@ -2,6 +2,7 @@ package com.duanxin.tree;
 
 /**
  * 二叉查找树：节点大于左节点，小于右节点
+ * 查找、删除、添加的时间复杂度都是 log(n)
  * @author duanxin
  * @version 1.0
  * @className BinarySearchTree
