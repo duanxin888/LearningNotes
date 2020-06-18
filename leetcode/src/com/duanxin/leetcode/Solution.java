@@ -1,8 +1,6 @@
 package com.duanxin.leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author duanxin
@@ -11,22 +9,23 @@ import java.util.Map;
  * @date 2020/06/18 09:32
  */
 public class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int max = 2047;
-        int[] res = new int[max + 1];
+    public List<List<Integer>> pairSums(int[] nums, int target) {
+        List<List<Integer>> list = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0, len = nums.length; i < len; ++i) {
-            int diff = max & (target - nums[i]);
-            if (res[diff] != 0) {
-                return new int[] {res[diff] -1 , i};
+            int num = target - nums[i];
+            if (map.containsKey(num) && map.get(num) > 0 && map.get(nums[i]) > 0) {
+                list.add(Arrays.asList(target - nums[i], nums[i]));
+                map.put(num, map.get(num) - 1);
             }
-            res[max & nums[i]] = i + 1;
+            map.put(nums[i], map.get(nums[i]) == null ? 1 : map.get(nums[i]) + 1);
         }
-        return new int[] {};
+        return list;
     }
 
     public static void main(String[] args) {
-        int[] nums = {3025, 5, 4025, 15};
-        int target = 1;
-        System.out.println(Arrays.toString(new Solution().twoSum(nums, target)));
+        int[] nums = {5, 6, 5, 6};
+        int target = 11;
+        System.out.println(new Solution().pairSums(nums, target));
     }
 }

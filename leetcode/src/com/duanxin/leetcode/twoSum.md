@@ -37,7 +37,7 @@ class Solution {
 }
 ```
 ```java
-// 解法二：位运算比较法  时间复杂度 O(n)  空间复杂度 O(1)
+// 解法三：位运算比较法  时间复杂度 O(n)  空间复杂度 O(1)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int max = 2047;
