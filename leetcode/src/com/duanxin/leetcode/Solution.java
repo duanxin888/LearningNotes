@@ -9,23 +9,23 @@ import java.util.*;
  * @date 2020/06/18 09:32
  */
 public class Solution {
-    public List<List<Integer>> pairSums(int[] nums, int target) {
-        List<List<Integer>> list = new ArrayList<>();
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0, len = nums.length; i < len; ++i) {
-            int num = target - nums[i];
-            if (map.containsKey(num) && map.get(num) > 0 && map.get(nums[i]) > 0) {
-                list.add(Arrays.asList(target - nums[i], nums[i]));
-                map.put(num, map.get(num) - 1);
+    public static List<List<Integer>> subsets(int[] nums) {
+        // 迭代法
+        List<List<Integer>> res = new ArrayList<>();
+        res.add(new ArrayList<>());
+        for (int num : nums) {
+            List<Integer> cur = new ArrayList<>();
+            cur.add(num);
+            for (int j = 0, size = res.size(); j < size; ++j) {
+                cur.addAll(res.get(j));
+                res.add(cur);
             }
-            map.put(nums[i], map.get(nums[i]) == null ? 1 : map.get(nums[i]) + 1);
         }
-        return list;
+        return res;
     }
 
     public static void main(String[] args) {
-        int[] nums = {5, 6, 5, 6};
-        int target = 11;
-        System.out.println(new Solution().pairSums(nums, target));
+        int[] nums = {1, 2, 3};
+        System.out.println(subsets(nums));
     }
 }
