@@ -1,4 +1,4 @@
-package com.duanxin.executor;
+package com.duanxin.future;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -55,7 +55,7 @@ public class FutureDemo {
             String tf = ft2.get();
             System.out.println("T1：拿到茶叶：" + tf);
 
-            System.out.println("T1：泡茶。。。");
+            System.out.println("T1：泡茶");
 
             return "上茶：" + tf;
         }
